@@ -1,5 +1,5 @@
 .idea
 __pycache__/
 .git
-.env
+Critical_blox/.env
 node_modules
