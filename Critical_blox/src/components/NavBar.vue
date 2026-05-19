@@ -28,7 +28,7 @@ async function logout() {
 </script>
 
 <template>
-  <nav class="bg-[#0e091d] border-b border-[#1f1f2f] sticky top-0 z-50 font-mono">
+  <nav class="bg-[#090018] border-b border-[#1f1f2f] sticky top-0 z-50 font-mono">
     <div class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
 
       <!-- Logo -->
