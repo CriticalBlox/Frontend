@@ -2,6 +2,7 @@
 import { ArrowRightEndOnRectangleIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 import { ref, computed } from 'vue'
 import RegisterModal from "@/components/RegisterModal.vue";
+import { useAuthStore } from '@/stores/authStore'
 
 
 const props = defineProps<{
@@ -19,6 +20,8 @@ const signInOpen = ref(false)
 
 const isVisible = computed(() => props.show || signInOpen.value)
 
+const authStore = useAuthStore()
+
 function openRegister() {
   signInOpen.value = false
   emit('close')
@@ -29,6 +32,15 @@ function closeAll() {
   signInOpen.value = false
   emit('close')
 }
+
+async function handleLogin() {
+  const success = await authStore.login(email.value, password.value)
+
+  if (success) {
+    closeAll()
+  }
+}
+
 </script>
 
 <template>
@@ -85,7 +97,9 @@ function closeAll() {
                   class="w-full px-4 py-2.5 rounded-xl border border-[#0e091d]/40 bg-white text-[#0e091d] text-sm placeholder-[#0e091d]/30 focus:outline-none focus:ring-2 focus:ring-[#0e091d]/20 focus:border-[#0e091d]/40 transition"
               />
             </div>
-
+            <p v-if="authStore.errorMessage" class="text-sm text-red-500 font-bold">
+              {{ authStore.errorMessage }}
+            </p>
 
           </div>
 
@@ -97,14 +111,13 @@ function closeAll() {
             >
               S'inscrire
             </button>
-            <button
-                class="flex items-center gap-2 px-5 py-2 rounded-xl text-sm font-bold bg-[#0f0f2d] text-white hover:bg-[#1a1a4a] transition cursor-pointer"
+            <button @click="handleLogin" :disabled="authStore.loading"
+                class="flex items-center gap-2 px-5 py-2 rounded-xl text-sm font-bold bg-[#0f0f2d] text-white hover:bg-[#1a1a4a] transition cursor-pointer disabled:opacity-50"
             >
               <ArrowRightEndOnRectangleIcon class="w-4 h-4" />
-              Connexion
+              {{ authStore.loading ? 'Connexion...' : 'Connexion' }}
             </button>
           </div>
-
         </div>
       </div>
     </Transition>
