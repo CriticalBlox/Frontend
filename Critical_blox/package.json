@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
+    "@iconify/vue": "^5.0.1",
     "@tailwindcss/vite": "^4.3.0",
     "daisyui": "^5.5.20",
     "pinia": "^3.0.4",
