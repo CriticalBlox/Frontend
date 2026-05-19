@@ -38,7 +38,10 @@ function getCardColor(index: number) {
 }
 
 function getTextColor(index: number) {
-  if (index <= 2 && currentPage.value === 1) return 'text-[#0e091d]'
+  if (index === 0 && currentPage.value === 1) return 'text-[#8a5400]'
+  if (index === 1 && currentPage.value === 1) return 'text-[#334155]'
+  if (index === 2 && currentPage.value === 1) return 'text-[#1f1200]'
+
   return 'text-white'
 }
 

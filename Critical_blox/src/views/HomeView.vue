@@ -19,11 +19,11 @@ onMounted(() => {
   <InfoSection/>
   <Footer/>
 
-  <p v-if="authStore.user">
-    {{ authStore.user.email }}
-  </p>
+<!--  <p v-if="authStore.user">-->
+<!--    {{ authStore.user.email }}-->
+<!--  </p>-->
 
-  <p v-else>
-    Non connecté
-  </p>
+<!--  <p v-else>-->
+<!--    Non connecté-->
+<!--  </p>-->
 </template>
