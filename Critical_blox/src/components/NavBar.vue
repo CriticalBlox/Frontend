@@ -68,7 +68,7 @@ async function logout() {
         <button
             v-else
             @click="logout"
-            class="flex items-center gap-2 px-5 py-2 bg-[#f9c62c] text-white font-bold text-sm rounded-md hover:bg-[#e6b625] transition-colors duration-150 whitespace-nowrap cursor-pointer"
+            class="flex items-center gap-2 px-5 py-2 bg-[#f9c62c] text-white border-[3px] border-white font-bold text-sm rounded-md hover:bg-[#e6b625] transition-colors duration-150 whitespace-nowrap cursor-pointer"
         >
           <ArrowRightEndOnRectangleIcon class="w-4 h-4" />
           Logout
